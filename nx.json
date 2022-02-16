@@ -1,0 +1,38 @@
+{
+  "npmScope": "apollo-client-examples",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "tour-of-heroes": {
+      "tags": []
+    },
+    "tour-of-heroes-e2e": {
+      "tags": [],
+      "implicitDependencies": ["tour-of-heroes"]
+    }
+  }
+}
