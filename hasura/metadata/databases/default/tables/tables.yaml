@@ -1,1 +1,5 @@
-[]
+- "!include public_hero_story.yaml"
+- "!include public_heroes.yaml"
+- "!include public_monster_story.yaml"
+- "!include public_monsters.yaml"
+- "!include public_stories.yaml"

@@ -1,0 +1,10 @@
+table:
+  name: monster_story
+  schema: public
+object_relationships:
+- name: monster
+  using:
+    foreign_key_constraint_on: monsterId
+- name: story
+  using:
+    foreign_key_constraint_on: storyId

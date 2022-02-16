@@ -1,0 +1,11 @@
+table:
+  name: monsters
+  schema: public
+array_relationships:
+- name: monsterStories
+  using:
+    foreign_key_constraint_on:
+      column: monsterId
+      table:
+        name: monster_story
+        schema: public

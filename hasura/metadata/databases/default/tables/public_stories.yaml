@@ -1,0 +1,18 @@
+table:
+  name: stories
+  schema: public
+array_relationships:
+- name: hero_stories
+  using:
+    foreign_key_constraint_on:
+      column: storyId
+      table:
+        name: hero_story
+        schema: public
+- name: monsterStories
+  using:
+    foreign_key_constraint_on:
+      column: storyId
+      table:
+        name: monster_story
+        schema: public
