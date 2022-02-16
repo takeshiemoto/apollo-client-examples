@@ -5,7 +5,7 @@ init:
 	hasura metadata apply --project hasura
 	hasura migrate apply --all-databases --project hasura
 	hasura metadata reload --project hasura
-	hasura seed apply
+	hasura seed apply --project hasura
 
 console:
 	hasura console --project hasura
