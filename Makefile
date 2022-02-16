@@ -1,11 +1,7 @@
 setup:
 	docker-compose up -d
 
-	hasura metadata apply --project hasura
-	hasura migrate apply --all-databases --project hasura
-	hasura metadata reload --project hasura
-
-update:
+init:
 	hasura metadata apply --project hasura
 	hasura migrate apply --all-databases --project hasura
 	hasura metadata reload --project hasura
