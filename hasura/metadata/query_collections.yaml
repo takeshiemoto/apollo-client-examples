@@ -1,1 +1,43 @@
-[]
+- name: allowed-queries
+  definition:
+    queries:
+    - name: Get Heroes
+      query: |-
+        query AllHeroes{
+          heroes {
+            id
+            name
+            updatedAt
+            createdAt
+          }
+        }
+    - name: Get Monsters
+      query: |-
+        query MyQuery {
+          monsters {
+            id
+            createdAt
+            name
+            updatedAt
+          }
+        }
+    - name: Get Hero By Id
+      query: |-
+        query MyQuery($id: Int!) {
+          heroes_by_pk(id: $id) {
+            id
+            name
+            updatedAt
+            createdAt
+          }
+        }
+    - name: Get Monster By Id
+      query: |-
+        query MyQuery($id: Int!) {
+          monsters_by_pk(id: $id) {
+            createdAt
+            id
+            name
+            updatedAt
+          }
+        }

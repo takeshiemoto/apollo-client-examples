@@ -1,1 +1,36 @@
-[]
+- definition:
+    query:
+      collection_name: allowed-queries
+      query_name: Get Heroes
+  url: heroes
+  methods:
+  - GET
+  name: Get Heroes
+  comment: null
+- definition:
+    query:
+      collection_name: allowed-queries
+      query_name: Get Hero By Id
+  url: heroes/:id
+  methods:
+  - GET
+  name: Get Hero By Id
+  comment: null
+- definition:
+    query:
+      collection_name: allowed-queries
+      query_name: Get Monsters
+  url: monsters
+  methods:
+  - GET
+  name: Get Monsters
+  comment: null
+- definition:
+    query:
+      collection_name: allowed-queries
+      query_name: Get Monster By Id
+  url: monsters/:id
+  methods:
+  - GET
+  name: Get Monster By Id
+  comment: null
