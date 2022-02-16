@@ -17,5 +17,5 @@ $ make update
 ## Clean
 
 ```shell
-$ make update
+$ make clean
 ```
