@@ -19,9 +19,9 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  date: any;
-  timestamp: any;
-  timestamptz: any;
+  date: string;
+  timestamp: string;
+  timestamptz: string;
 };
 
 /** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
@@ -2015,6 +2015,14 @@ export type Timestamptz_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['timestamptz']>>;
 };
 
+export type MonsterFragment = {
+  __typename?: 'monsters';
+  id: number;
+  name: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export type GetMonstersQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetMonstersQuery = {
@@ -2023,20 +2031,26 @@ export type GetMonstersQuery = {
     __typename?: 'monsters';
     id: number;
     name: string;
-    createdAt: any;
-    updatedAt: any;
+    createdAt: string;
+    updatedAt: string;
   }>;
 };
 
+export const MonsterFragmentDoc = gql`
+  fragment monster on monsters {
+    id
+    name
+    createdAt
+    updatedAt
+  }
+`;
 export const GetMonstersDocument = gql`
   query GetMonsters {
     monsters {
-      id
-      name
-      createdAt
-      updatedAt
+      ...monster
     }
   }
+  ${MonsterFragmentDoc}
 `;
 
 /**

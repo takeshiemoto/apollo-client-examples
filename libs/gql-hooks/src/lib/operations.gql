@@ -1,0 +1,5 @@
+query GetMonsters {
+  monsters {
+    ...monster
+  }
+}

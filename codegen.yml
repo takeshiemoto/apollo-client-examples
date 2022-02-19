@@ -1,12 +1,21 @@
 overwrite: true
 schema: 'http://localhost:8080/v1/graphql'
-documents: 'libs/gql-hooks/**/*.graphql'
+#documents: 'libs/gql-hooks/src/lib/operations.ts'
+documents: 'libs/gql-hooks/**/*.gql'
 generates:
   libs/gql-hooks/src/lib/gql-hooks.tsx:
     plugins:
       - 'typescript'
       - 'typescript-operations'
       - 'typescript-react-apollo'
+    config:
+      scalars:
+        date: string
+        timestamp: string
+        timestamptz: string
   ./graphql.schema.json:
     plugins:
       - 'introspection'
+hooks:
+  afterAllFileWrite:
+    - prettier --write

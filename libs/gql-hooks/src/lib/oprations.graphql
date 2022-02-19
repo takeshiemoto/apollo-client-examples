@@ -1,8 +1,0 @@
-query GetMonsters {
-  monsters {
-    id
-    name
-    createdAt
-    updatedAt
-  }
-}

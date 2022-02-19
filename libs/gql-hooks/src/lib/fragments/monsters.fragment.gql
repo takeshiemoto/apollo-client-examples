@@ -1,0 +1,6 @@
+fragment monster on monsters {
+  id
+  name
+  createdAt
+  updatedAt
+}
