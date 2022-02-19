@@ -1,6 +1,20 @@
 {
   "version": 2,
   "projects": {
+    "gql-hooks": {
+      "root": "libs/gql-hooks",
+      "sourceRoot": "libs/gql-hooks/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/gql-hooks/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      }
+    },
     "tour-of-heroes": {
       "root": "apps/tour-of-heroes",
       "sourceRoot": "apps/tour-of-heroes/src",
