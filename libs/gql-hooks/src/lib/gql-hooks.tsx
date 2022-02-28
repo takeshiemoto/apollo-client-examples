@@ -2036,6 +2036,21 @@ export type GetMonstersQuery = {
   }>;
 };
 
+export type GetMonsterQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+export type GetMonsterQuery = {
+  __typename?: 'query_root';
+  monsters_by_pk?: {
+    __typename?: 'monsters';
+    id: number;
+    name: string;
+    createdAt: string;
+    updatedAt: string;
+  } | null;
+};
+
 export const MonsterFragmentDoc = gql`
   fragment monster on monsters {
     id
@@ -2099,4 +2114,61 @@ export type GetMonstersLazyQueryHookResult = ReturnType<
 export type GetMonstersQueryResult = Apollo.QueryResult<
   GetMonstersQuery,
   GetMonstersQueryVariables
+>;
+export const GetMonsterDocument = gql`
+  query GetMonster($id: Int!) {
+    monsters_by_pk(id: $id) {
+      ...monster
+    }
+  }
+  ${MonsterFragmentDoc}
+`;
+
+/**
+ * __useGetMonsterQuery__
+ *
+ * To run a query within a React component, call `useGetMonsterQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMonsterQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMonsterQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGetMonsterQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    GetMonsterQuery,
+    GetMonsterQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetMonsterQuery, GetMonsterQueryVariables>(
+    GetMonsterDocument,
+    options
+  );
+}
+export function useGetMonsterLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetMonsterQuery,
+    GetMonsterQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetMonsterQuery, GetMonsterQueryVariables>(
+    GetMonsterDocument,
+    options
+  );
+}
+export type GetMonsterQueryHookResult = ReturnType<typeof useGetMonsterQuery>;
+export type GetMonsterLazyQueryHookResult = ReturnType<
+  typeof useGetMonsterLazyQuery
+>;
+export type GetMonsterQueryResult = Apollo.QueryResult<
+  GetMonsterQuery,
+  GetMonsterQueryVariables
 >;

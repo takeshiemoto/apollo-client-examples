@@ -3,3 +3,9 @@ query GetMonsters {
     ...monster
   }
 }
+
+query GetMonster($id: Int!) {
+  monsters_by_pk(id: $id) {
+    ...monster
+  }
+}
